@@ -5,7 +5,9 @@ import { useRef } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { AiOutlineShoppingCart, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai'
 import { BsFillBagCheckFill } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
 function Header() {
+    const value = useSelector(state => state.cartItems.cartitems)
     const ref = useRef()
     const cartToggle = () => {
         if (ref.current.classList.contains("translate-x-full")) {  // it is hidden
@@ -21,7 +23,7 @@ function Header() {
         <div className='flex flex-col items-center justify-center md:justify-start md:flex-row md-3 py-4 shadow-md'>
             <div className='logo'>
                 <Link href="/">
-                    <Image src="/logo.png" width={200} height={40} />
+                    <Image src="/logo.png" width={200} height={40} alt="not found" />
                 </Link>
             </div>
             <div className='div'>
@@ -34,9 +36,13 @@ function Header() {
                     <Link href={"/about"}><li>About</li></Link>
                 </ul>
             </div>
-            <div onClick={cartToggle} className='cart absolute right-0 top-4 mx-3 cursor-pointer'>
-                <AiOutlineShoppingCart className="text-xl md:text-4xl" />
+            <div className=''>
+                {/* <div onClick={cartToggle} className='cart absolute right-0 top-4 mx-3 cursor-pointer'> */}
+                <div onClick={cartToggle} className='flex justify-between items-center absolute right-0 top-4 mx-3 cursor-pointer'>
+                    <AiOutlineShoppingCart className="text-xl md:text-4xl" /><span>{value != 0 && value.length}</span>
+                </div>
             </div>
+
             {/* Cart side bar  */}
             <div ref={ref} className='sidebar text-xs md:text-md z-10 w-60 md:w-80 bg-pink-100 absolute right-0 top-0 py-10 px-5 md:px-10 transform transition-transform translate-x-full'>
                 <div onClick={cartToggle} className='cross absolute right-2 top-5 cursor-pointer text-2xl text-pink-500'>
@@ -107,7 +113,7 @@ function Header() {
                     </li>
 
                 </ol>
-                <button class="flex mx-auto mt-4 md:mt-8 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                <button className="flex mx-auto mt-4 md:mt-8 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">
                     <BsFillBagCheckFill className='m-1' />
                     Checkout</button>
 
