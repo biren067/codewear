@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRef } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { AiOutlineShoppingCart, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai'
+import { GrClearOption } from 'react-icons/gr'
 import { BsFillBagCheckFill } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 function Header() {
@@ -113,9 +114,18 @@ function Header() {
                     </li>
 
                 </ol>
-                <button className="flex mx-auto mt-4 md:mt-8 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                {/* <button className="flex mx-auto mt-4 md:mt-8 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">
                     <BsFillBagCheckFill className='m-1' />
-                    Checkout</button>
+                    Checkout</button> */}
+                <div className='flex items-center justify-around mx-auto'>
+                    <button className="flex  mt-2  md:mt-0 text-white bg-pink-500 border-0 py-1 px-2 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                        <BsFillBagCheckFill className='m-1' />
+                        Checkout</button>
+                    <button className="flex mt-2 md:mt-0 text-white bg-pink-500 border-0 py-1 px-2 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                        {/* <GrClearOption className='m-1 t' /> */}
+                        Clean</button>
+                </div>
+
 
             </div>
         </div>
