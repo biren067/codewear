@@ -21,10 +21,10 @@ function Header() {
         }
     }
     return (
-        <div className='flex flex-col items-center justify-center md:justify-start md:flex-row md-3 py-4 shadow-md'>
+        <div className='flex flex-col items-center justify-center md:justify-between md:flex-row md-3 py-4 shadow-md'>
             <div className='logo'>
                 <Link href="/">
-                    <Image src="/logo.png" width={200} height={40} alt="not found" />
+                    <Image src="/logo4.png" width={40} height={20} alt="not found" />
                 </Link>
             </div>
             <div className='div'>
@@ -37,16 +37,22 @@ function Header() {
                     <Link href={"/about"}><li>About</li></Link>
                 </ul>
             </div>
-            <div className=''>
+
+            <div className='mr-10'>
                 {/* <div onClick={cartToggle} className='cart absolute right-0 top-4 mx-3 cursor-pointer'> */}
+                <Link href="/sellbook/" className="mx-2 px-3 py-1 text-gray-800  rounded-md font-bold bg-yellow-300">Sell</Link>
                 <div onClick={cartToggle} className='flex justify-between items-center absolute right-0 top-4 mx-3 cursor-pointer'>
+
+
+
                     <AiOutlineShoppingCart className="text-xl md:text-4xl" /><span>{value != 0 && value.length}</span>
                 </div>
             </div>
 
             {/* Cart side bar  */}
-            <div ref={ref} className='sidebar text-xs md:text-md z-10 w-60 md:w-80 bg-pink-100 absolute right-0 top-0 py-10 px-5 md:px-10 transform transition-transform translate-x-full'>
-                <div onClick={cartToggle} className='cross absolute right-2 top-5 cursor-pointer text-2xl text-pink-500'>
+            <div ref={ref} className='sidebar text-xs md:text-md z-10 w-60 md:w-80 bg-blue-100 absolute right-0 top-0 py-10 px-5 md:px-10 transform transition-transform translate-x-full'>
+
+                <div onClick={cartToggle} className='cross absolute right-2 top-5 cursor-pointer text-2xl text-blue-500'>
                     <AiFillCloseCircle />
                 </div>
                 <h2 className='font-bold text-xl text-center'>Shopping Cart</h2>
@@ -55,9 +61,9 @@ function Header() {
                         <div className='flex  items-around justify-center'>
                             <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
                             <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
                                 33
-                                <AiFillPlusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
                             </div>
                         </div>
 
@@ -67,9 +73,9 @@ function Header() {
                         <div className='flex  items-around justify-center'>
                             <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
                             <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
                                 33
-                                <AiFillPlusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
                             </div>
                         </div>
 
@@ -79,22 +85,9 @@ function Header() {
                         <div className='flex  items-around justify-center'>
                             <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
                             <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
                                 33
-                                <AiFillPlusCircle className="cursor-pointer text-pink-500 mx-1" />
-                            </div>
-                        </div>
-
-                    </li>
-
-
-                    <li className='my-1 md:my-3'>
-                        <div className='flex  items-around justify-center'>
-                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
-                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-pink-500 mx-1" />
-                                33
-                                <AiFillPlusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
                             </div>
                         </div>
 
@@ -105,23 +98,36 @@ function Header() {
                         <div className='flex  items-around justify-center'>
                             <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
                             <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
                                 33
-                                <AiFillPlusCircle className="cursor-pointer text-pink-500 mx-1" />
+                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                    <li className='my-1 md:my-3'>
+                        <div className='flex  items-around justify-center'>
+                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
+                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
+                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
+                                33
+                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
                             </div>
                         </div>
 
                     </li>
 
                 </ol>
-                {/* <button className="flex mx-auto mt-4 md:mt-8 text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                {/* <button className="flex mx-auto mt-4 md:mt-8 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
                     <BsFillBagCheckFill className='m-1' />
                     Checkout</button> */}
                 <div className='flex items-center justify-around mx-auto'>
-                    <button className="flex  mt-2  md:mt-0 text-white bg-pink-500 border-0 py-1 px-2 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                    <button className="flex  mt-2  md:mt-0 text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg">
                         <BsFillBagCheckFill className='m-1' />
                         Checkout</button>
-                    <button className="flex mt-2 md:mt-0 text-white bg-pink-500 border-0 py-1 px-2 focus:outline-none hover:bg-pink-600 rounded text-lg">
+                    <button className="flex mt-2 md:mt-0 text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg">
                         {/* <GrClearOption className='m-1 t' /> */}
                         Clean</button>
                 </div>

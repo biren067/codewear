@@ -8,7 +8,7 @@ function Footer() {
             <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <Link href="/">
-                        <Image src="/logo.png" width={200} height={40} alt="logo not found" />
+                        <Image src="/logo4.png" width={50} height={40} alt="logo not found" />
                     </Link>
                     <p className="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
                 </div>
