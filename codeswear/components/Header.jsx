@@ -57,7 +57,27 @@ function Header() {
                 </div>
                 <h2 className='font-bold text-xl text-center'>Shopping Cart</h2>
                 <ol className='list-decimal font-semibold'>
-                    <li className='my-1 md:my-3'>
+
+                    {value.map((item) => (
+                        <li className='my-1 md:my-3'>
+                            <div className='flex  items-around justify-center'>
+                                <div className='w-[1/3] font-semibold'>{item.name}</div>
+                                <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
+                                    <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
+                                    {item.price}
+                                    <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
+                                </div>
+                            </div>
+
+                        </li>
+
+
+                    ))}
+
+
+
+
+                    {/* <li className='my-1 md:my-3'>
                         <div className='flex  items-around justify-center'>
                             <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
                             <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
@@ -67,57 +87,7 @@ function Header() {
                             </div>
                         </div>
 
-                    </li>
-
-                    <li className='my-1 md:my-3'>
-                        <div className='flex  items-around justify-center'>
-                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
-                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
-                                33
-                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li className='my-1 md:my-3'>
-                        <div className='flex  items-around justify-center'>
-                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
-                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
-                                33
-                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
-                            </div>
-                        </div>
-
-                    </li>
-
-
-                    <li className='my-1 md:my-3'>
-                        <div className='flex  items-around justify-center'>
-                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
-                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
-                                33
-                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
-                            </div>
-                        </div>
-
-                    </li>
-
-
-                    <li className='my-1 md:my-3'>
-                        <div className='flex  items-around justify-center'>
-                            <div className='w-[1/3] font-semibold'>bonsfasfss adfsfsf dsdfsdf sfsfsdfs sdlsdfjsl ldjlsflsjflksjflksflkjdsaj fsfsdfsd</div>
-                            <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
-                                33
-                                <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
-                            </div>
-                        </div>
-
-                    </li>
+                    </li> */}
 
                 </ol>
                 {/* <button className="flex mx-auto mt-4 md:mt-8 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">

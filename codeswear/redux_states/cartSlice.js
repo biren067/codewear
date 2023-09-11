@@ -21,7 +21,7 @@ export const CartSlice = createSlice({
             // state.cartitems.push(state.cartitems)
             state.cartitems.map((row) => {
                 console.log(row.name)
-                console.log("map")
+                // console.log("map")
             })
             // for (let i = 0; i < totalItems; i++) {
             //     console.log(state.cartitems)
