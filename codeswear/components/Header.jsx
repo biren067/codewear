@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRef } from 'react'
@@ -8,10 +8,12 @@ import { GrClearOption } from 'react-icons/gr'
 import { BsFillBagCheckFill } from 'react-icons/bs'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart, cleanCart, removeFromCart } from '../redux_states/cartSlice'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Header() {
     const dispatch = useDispatch();
     const value = useSelector(state => state.cartItems.cartitems)
+
     const ref = useRef()
     const cartToggle = () => {
         if (ref.current.classList.contains("translate-x-full")) {  // it is hidden
@@ -23,8 +25,10 @@ function Header() {
             ref.current.classList.add("translate-x-full")
         }
     }
+
     return (
         <div className='flex flex-col items-center justify-center md:justify-between md:flex-row md-3 py-4 shadow-md'>
+
             <div className='logo'>
                 <Link href="/">
                     <Image src="/logo4.png" width={40} height={20} alt="not found" />

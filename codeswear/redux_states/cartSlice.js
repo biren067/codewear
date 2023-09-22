@@ -1,5 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+
+const nofity = (value) => {
+    // toast.configure()
+    // toast(value)
+    console.log(value)
+}
+
 export const CartSlice = createSlice({
     name: 'cartItems',
     initialState: {
@@ -14,6 +22,7 @@ export const CartSlice = createSlice({
             let newItem = true
             if (keys.length == 0) {
                 state.cartitems.push(payload)
+                // toast(' is added in cart')
                 newItem = false
             } else {
                 for (let i = 0; i < keys.length; i++) {

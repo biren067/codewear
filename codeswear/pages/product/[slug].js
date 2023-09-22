@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react'
 import { addToCart } from '../../redux_states/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import productList from '../../components/data/tshirtData'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Page() {
     const router = useRouter()
     const slugValue = router.query.slug
@@ -46,6 +49,7 @@ export default function Page() {
             'price': product.price
         }
         dispatch(addToCart(payload))
+        toast(payload.name + ' has been Added')
     }
     useEffect(() => {
         // console.log(productList)
@@ -64,7 +68,7 @@ export default function Page() {
 
     }, [slugValue])
     return (
-        <>
+        <><ToastContainer />
             <section className="text-gray-600 body-font overflow-hidden">
                 <div className="container px-5 py-10 mx-auto">
                     <div className="lg:w-4/5 mx-auto flex flex-wrap">
