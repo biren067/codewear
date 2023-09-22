@@ -3,39 +3,64 @@ import { createSlice } from '@reduxjs/toolkit'
 export const CartSlice = createSlice({
     name: 'cartItems',
     initialState: {
-        // : 0,
         cartitems: []
     },
     reducers: {
-        addToCart: (state, items) => {
-            let newCart = items.payload
-            console.log("state::", items.payload)
-            if (state.cartitems.length === 0)
-                console.log("Length of cart " + state.cartitems.length)
-
-            // console.log(typeof (state.cartitems.keys()))
-            state.cartitems.push({ name: newCart.name, price: newCart.price })
-            console.log("Length of cart " + state.cartitems.length)
-            // console.log(Object.keys(state.cartitems))
-            let totalItems = Object.keys(state.cartitems).length
-            // state.cartitems.push(state.cartitems)
-            state.cartitems.map((row) => {
-                console.log(row.name)
-                // console.log("map")
-            })
-            // for (let i = 0; i < totalItems; i++) {
-            //     console.log(state.cartitems)
-            // }
-            // console.log("initialState::" + state.cartitems)
+        addToCart: (state, action) => {
+            let payload = action.payload
+            console.log("state::", payload)
+            const keys = Object.keys(state.cartitems)
+            // console.log("Keys::", keys, typeof keys)
+            let newItem = true
+            if (keys.length == 0) {
+                state.cartitems.push(payload)
+                newItem = false
+            } else {
+                for (let i = 0; i < keys.length; i++) {
+                    if (payload.name === state.cartitems[i].name) {
+                        state.cartitems[i].quantity = state.cartitems[i].quantity + 1
+                        // state.cartitems.push(payload)
+                        newItem = false
+                        console.log("Items alrealy exist")
+                    }
+                }
+            }
+            if (newItem === true) {
+                state.cartitems.push(payload)
+                console.log(keys)
+                console.log("Item Added", state.cartitems)
+            }
 
         },
-        // updatePrice: (state, items) => {
-        //     console.log("items::", items)
-        //     state.value = items.payload
-        //     console.log(state.value)
-        // }
-    }
-})
+        removeFromCart: (state, action) => {
+            let isItemExists = false
+            let keys = Object.keys(state.cartitems)
+            for (let i = 0; i < keys.length; i++) {
+                if (state.cartitems[i].name == action.payload.name) {
+                    state.cartitems[i].quantity = state.cartitems[i].quantity - 1
+                    if (state.cartitems[i].quantity === 0) {
+                        state.cartitems.splice(i, 1)
+                        break
+                    }
+                }
+                isItemExists = true
 
-export const { addToCart } = CartSlice.actions;
+            }
+            if (isItemExists == true) {
+                console.log("Items has been removed")
+            } else {
+                console.log("Items does not removed")
+            }
+
+        },
+        cleanCart: (state, action) => {
+            console.log("Cleaning")
+            state.cartitems = []
+        }
+
+    }
+}
+)
+
+export const { addToCart, removeFromCart, cleanCart } = CartSlice.actions;
 export default CartSlice.reducer;

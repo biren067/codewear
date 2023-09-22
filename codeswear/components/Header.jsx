@@ -6,8 +6,11 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { AiOutlineShoppingCart, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai'
 import { GrClearOption } from 'react-icons/gr'
 import { BsFillBagCheckFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart, cleanCart, removeFromCart } from '../redux_states/cartSlice'
+
 function Header() {
+    const dispatch = useDispatch();
     const value = useSelector(state => state.cartItems.cartitems)
     const ref = useRef()
     const cartToggle = () => {
@@ -63,9 +66,20 @@ function Header() {
                             <div className='flex  items-around justify-center'>
                                 <div className='w-[1/3] font-semibold'>{item.name}</div>
                                 <div className='w-[2/3] font-semibold flex items-center justify-center text-lg'>
-                                    <AiFillMinusCircle className="cursor-pointer text-blue-500 mx-1" />
+                                    <AiFillMinusCircle onClick={() => dispatch(removeFromCart({
+                                        'quantity': 1,
+                                        'name': item.name,
+                                        'price': item.price
+                                    }))}
+                                        className="cursor-pointer text-blue-500 mx-1" />
                                     {item.price}
-                                    <AiFillPlusCircle className="cursor-pointer text-blue-500 mx-1" />
+                                    <AiFillPlusCircle onClick={() => dispatch(addToCart({
+                                        'quantity': 1,
+                                        'name': item.name,
+                                        'price': item.price
+                                    }))}
+                                        className="cursor-pointer text-blue-500 mx-1" />
+                                    <div>{item.quantity}</div>
                                 </div>
                             </div>
 
@@ -97,7 +111,7 @@ function Header() {
                     <button className="flex  mt-2  md:mt-0 text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg">
                         <BsFillBagCheckFill className='m-1' />
                         Checkout</button>
-                    <button className="flex mt-2 md:mt-0 text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg">
+                    <button onClick={() => dispatch(cleanCart())} className="flex mt-2 md:mt-0 text-white bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded text-lg">
                         {/* <GrClearOption className='m-1 t' /> */}
                         Clean</button>
                 </div>

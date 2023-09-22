@@ -11,6 +11,8 @@ export default function Page() {
     const [serviceAvailable, setServiceAvailable] = useState(null)
     const [pin, setPin] = useState(null)
     const [product, getProduct] = useState({})
+    const [productName, getProductName] = useState({})
+    const [productPrice, getProductPrice] = useState({})
     const dispatch = useDispatch()
     const value = useSelector(state => state.cartItems.cartitems)
     const onChangepin = (e) => {
@@ -30,8 +32,20 @@ export default function Page() {
 
     }
     const addCart = () => {
-        console.log("bond")
-        dispatch(addToCart("The Catcher in the Rye", 333))
+        // console.log("bond")
+        // let action = {
+        //     type: addToCart, payload: {
+        //         'quantity': 1,
+        //         'name': product.name,
+        //         'price': product.price
+        //     }
+        // }
+        const payload = {
+            'quantity': 1,
+            'name': product.name,
+            'price': product.price
+        }
+        dispatch(addToCart(payload))
     }
     useEffect(() => {
         // console.log(productList)
@@ -123,7 +137,7 @@ export default function Page() {
                             </div>
                             <div className="flex">
                                 <span name="price" className="title-font font-medium text-2xl text-gray-900">₹{product.price}</span>
-                                <button onClick={() => dispatch(addToCart({ name: product.name, price: product.price }))} className="flex ml-5 text-white bg-blue-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded">Add to Cart</button>
+                                <button onClick={addCart} className="flex ml-5 text-white bg-blue-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded">Add to Cart</button>
                                 <button className="flex ml-2 text-white bg-blue-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-blue-600 rounded">Buy Now</button>
                                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                                     <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
